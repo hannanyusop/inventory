@@ -4,17 +4,25 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\Customer\InsertSupplierRequest;
-use App\Http\Requests\Customer\UpdateSupplierRequest;
+use App\Http\Requests\Customer\InsertCustomerRequest;
+use App\Http\Requests\Customer\UpdateCustomersRequest;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 
 
 class CustomerController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $customers = Customer::all();
+        if($request->has('name') || $request->has('email')){
+
+            $customers = Customer::where('email', 'like', '%'.$request->email.'%')
+                ->where('name', 'like', '%'.$request->name.'%')
+                ->get();
+        }else{
+            $customers = Customer::all();
+        }
         return view('backend.customer.index', compact('customers'));
     }
 
@@ -24,7 +32,7 @@ class CustomerController extends Controller
 
     }
 
-    public function insert(InsertSupplierRequest $request){
+    public function insert(InsertCustomerRequest $request){
 
         $customer = new Customer();
         $customer->name = $request->name;
@@ -62,7 +70,7 @@ class CustomerController extends Controller
 
     }
 
-    public function update(UpdateSupplierRequest $request, $id){
+    public function update(UpdateCustomersRequest $request, $id){
 
         $customer = Customer::find($id);
         $customer->name = $request->name;

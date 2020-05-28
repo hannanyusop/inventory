@@ -54,6 +54,11 @@
                                 <i class="metismenu-icon"></i> Transfer Stock List
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('admin.stock-report.index') }}" >
+                                <i class="metismenu-icon"></i> Stock Report
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>

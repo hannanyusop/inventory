@@ -3,22 +3,30 @@
 @section('title', app_name() . ' | Receive Stock List' )
 
 @section('content')
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="fa fa-briefcase icon-gradient bg-ripe-malin"></i>
+                </div>
+                <div>Receive Stock List
+                    <div class="page-title-subheading">Examples of just how powerful ArchitectUI really is!</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Inline</h5>
                     <div>
                         <form class="form-inline">
                             <div class="position-relative form-group">
-                                <label for="exampleEmail33" class="sr-only">Email</label>
-                                {{ html()->select('supplier_id', $suppliers)->class('mr-2 form-control') }}
+                                <label for="supplier_id" class="sr-only">Supplier</label>
+                                {{ html()->select('supplier_id', $suppliers)->class('mr-2 multiselect-dropdown form-control')->value((request()->has('supplier_id'))? request('supplier_id') : '') }}
                             </div>
-                            <div class="position-relative form-group">
-                                <label for="examplePassword44" class="sr-only">Password</label>
-                                <input name="password" id="examplePassword44" placeholder="Password" type="password" class="mr-2 form-control">
-                            </div>
-                            <button class="btn btn-primary">Search</button>
+                            <button class="ml-2 btn btn-primary">Search</button>
+                            <a href="{{ route('admin.stock-receive.index') }}" class="ml-2 btn btn-warning">Clear</a>
                         </form>
                     </div>
                 </div>

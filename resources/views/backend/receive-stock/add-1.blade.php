@@ -5,12 +5,23 @@
     use Illuminate\Support\Facades\Session;
 ?>
 @section('content')
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-cart icon-gradient bg-ripe-malin"></i>
+                </div>
+                <div>Receive Stock
+                    <div class="page-title-subheading">STEP 1: Supplier Information</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
                 <div class="card-body">
 
-                    <h3 class="card-title">STEP 1: Supplier Information</h3>
                     {{ html()->form('post', route('admin.stock-receive.add', 'step=1'))->attribute('enctype', 'multipart/form-data')->open() }}
 
                     <div class="form-row">

@@ -6,13 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Supplier\InsertSupplierRequest;
 use App\Http\Requests\Supplier\UpdateSupplierRequest;
 use App\Models\Supplier;
+use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $suppliers = Supplier::all();
+
+        if($request->has('name') || $request->has('email')){
+
+            $suppliers = Supplier::where('email', 'like', '%'.$request->email.'%')
+                ->where('name', 'like', '%'.$request->name.'%')
+                ->get();
+        }else{
+            $suppliers = Supplier::all();
+        }
+
         return view('backend.supplier.index', compact('suppliers'));
     }
 

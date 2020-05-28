@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\ReceiveStockController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\TransferStockController;
+use App\Http\Controllers\Backend\StockReportController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -79,3 +80,11 @@ Route::group(['prefix' => 'stock-transfer/', 'as' => 'stock-transfer.'], functio
 
 
 });
+
+Route::group(['prefix' => 'stock-report/', 'as' => 'stock-report.'], function(){
+
+    Route::get('', [StockReportController::class, 'index'])->name('index');
+
+
+});
+
