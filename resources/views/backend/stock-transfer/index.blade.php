@@ -10,7 +10,6 @@
                     <i class="pe-7s-news-paper icon-gradient bg-ripe-malin"></i>
                 </div>
                 <div>Transfer Stock
-                    <div class="page-title-subheading">STEP 1: Supplier Information</div>
                 </div>
             </div>
         </div>
@@ -26,11 +25,8 @@
                                 <label for="customer_id" class="sr-only">Email</label>
                                 {{ html()->select('customer_id', $customers)->class('mr-2 form-control') }}
                             </div>
-                            <div class="position-relative form-group">
-                                <label for="examplePassword44" class="sr-only">Password</label>
-                                <input name="password" id="examplePassword44" placeholder="Password" type="password" class="mr-2 form-control">
-                            </div>
                             <button class="btn btn-primary">Search</button>
+                            <a href="{{ route('admin.stock-transfer.index') }}" class="ml-2 btn btn-warning">Clear</a>
                         </form>
                     </div>
                 </div>

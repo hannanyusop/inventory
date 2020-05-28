@@ -23,11 +23,11 @@
                         {{ html()->form()->method('get')->class('form-inline')->open() }}
                         <div class="position-relative form-group">
                             <label for="name" class="sr-only">Name</label>
-                            {{ html()->input('text', 'name')->class('form-control mr-2')->value((request()->has('name'))? request('name') : '') }}
+                            {{ html()->input('text', 'name')->class('form-control mr-2')->value((request()->has('name'))? request('name') : '')->placeholder('NAME') }}
                         </div>
                         <div class="position-relative form-group">
                             <label for="email" class="sr-only">Email</label>
-                            {{ html()->input('text', 'email')->class('form-control mr-2')->value((request()->has('email'))? request('email') : '')  }}
+                            {{ html()->input('text', 'email')->class('form-control mr-2')->value((request()->has('email'))? request('email') : '') ->placeholder('EMAIL') }}
                         </div>
                         <button class="btn btn-primary mr-2">Search</button>
                         <a href="{{ route('admin.customer.index') }}" class="btn btn-warning mr-2">Clear</a>

@@ -8,6 +8,7 @@ use App\Http\Requests\Item\UpdateItemRequest;
 use App\Http\Requests\Item\InsertItemRequest;
 use App\Models\Category;
 use App\Models\Item;
+use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 
 /**
@@ -16,10 +17,33 @@ use Illuminate\Http\UploadedFile;
 class ItemController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::all();
-        return view('backend.item.index', compact('items'));
+
+        if($request->has('category_id')){
+
+
+
+
+            if($request->category_id != 0){
+                $items = Item::where('name', 'like', '%'.$request->name.'%')
+                    ->where('category_id', $request->category_id)
+                    ->get();
+            }else{
+                $items = Item::where('name', 'like', '%'.$request->name.'%')
+                    ->get();
+            }
+
+        }else{
+            $items = Item::all();
+        }
+
+        $categories = Category::all()->pluck('name', 'id');
+
+        $categories[0] = 'All';
+
+
+        return view('backend.item.index', compact('items', 'categories'));
     }
 
     public function add(){

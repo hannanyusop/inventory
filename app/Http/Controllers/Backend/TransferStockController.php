@@ -15,10 +15,19 @@ use Illuminate\Support\Facades\Session;
 class TransferStockController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+
+        if($request->has('customer_id')){
+
+            $ci = CustomerInvoice::where('customer_id', '=', $request->customer_id)
+                ->get();
+
+        }else{
+            $ci = CustomerInvoice::all();
+        }
+
         $customers = Customer::all()->pluck('name','id');
-        $ci = CustomerInvoice::all();
         return view('backend.stock-transfer.index', compact('ci', 'customers'));
     }
 
@@ -28,9 +37,15 @@ class TransferStockController extends Controller
 
             if($request->isMethod('post')){
 
+                $request->validate([
+                    'customer_id' => 'required|exists:suppliers,id',
+                    'date' => 'required',
+                ]);
+
                 $data = [
                     'customer_id' => $request->customer_id,
                     'date' => $request->date,
+                    'product' => []
                 ];
 
                 Session::put('transfer_product', $data);
@@ -44,6 +59,14 @@ class TransferStockController extends Controller
             } else if (request('step') == 2){
 
             if(request('add')) {
+
+                $request->validate([
+                    'item_id' => 'required|exists:items,id',
+                    'price_customer' => 'required|numeric|min:0',
+                    'price_adjustment' => 'required|numeric|min:0',
+                    'qty' => 'required|numeric|min:1',
+                    'total' => 'required|numeric|min:0'
+                ]);
 
                $p = Item::find($request->item_id);
 
@@ -144,6 +167,11 @@ class TransferStockController extends Controller
 
            $transfer_product = Session::get('transfer_product');
 
+            #need to check atleat 1 product inserted
+            if(count($transfer_product['product']) == 0){
+                return redirect(route('admin.stock-receive.add', 'step=2'))->withErrors('Please Add At Least 1 product!');
+            }
+
            #testing purpose
            $transfer_product['customer_id'] = 1;
 
@@ -151,6 +179,10 @@ class TransferStockController extends Controller
 
            return view('backend.stock-transfer.add-3', compact('customer'));
        }else if(request('step') == 4){
+
+            $request->validate([
+                'remark' => 'required',
+            ]);
 
             $session = Session::get('transfer_product');
 

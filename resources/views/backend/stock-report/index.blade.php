@@ -10,7 +10,7 @@
                     <i class="pe-7s-graph1 icon-gradient bg-ripe-malin"></i>
                 </div>
                 <div>Stock Report
-                    <div class="page-title-subheading">Examples of just how powerful ArchitectUI really is!</div>
+                    <div class="page-title-subheading"></div>
                 </div>
             </div>
         </div>

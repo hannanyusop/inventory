@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                             <div class="position-relative form-group">
                                 <label for="supplier_id" class="">SUPPLIER</label>
-                                {{ html()->select('supplier_id', $suppliers)->value((Session::has('receive_product'))?Session::get('receive_product')['supplier_id'] : "" )->class('form-control') }}
+                                {{ html()->select('supplier_id', $suppliers)->value((Session::has('receive_product'))?Session::get('receive_product')['supplier_id'] : "" )->class('multiselect-dropdown form-control') }}
                             </div>
                         </div>
                         <div class="col-md-6">
