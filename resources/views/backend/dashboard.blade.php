@@ -72,7 +72,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-12 col-xl-6">
             <div class="main-card mb-3 card">

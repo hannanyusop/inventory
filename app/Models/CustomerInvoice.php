@@ -13,7 +13,7 @@ class CustomerInvoice extends Model
     ];
 
     public function items(){
-        return $this->hasOne(CustomerInvoiceItem::class, 'ci_id', 'id');
+        return $this->hasMany(CustomerInvoiceItem::class, 'ci_id', 'id');
     }
 
     public function customer(){
