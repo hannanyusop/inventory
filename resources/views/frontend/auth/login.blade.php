@@ -6,8 +6,10 @@
     <div class="modal-dialog w-100 mx-auto">
         <div class="modal-content">
             <div class="modal-body">
+
                 <div class="h5 modal-title text-center">
-                    <h4 class="mt-2">
+                    <img class="" src="{{ asset('img/backend/brand/logo-square.png') }}">
+                    <h4 class="">
                         <div>Welcome back,</div>
                         <span>Please sign in to your account below.</span>
                     </h4>
@@ -18,7 +20,7 @@
                         <div class="col-md-12">
                             <div class="position-relative form-group">
                                 {{ html()->email('email')
-                                        ->class('form-control')
+                                        ->class('form-control form-control-lg')
                                         ->placeholder(__('validation.attributes.frontend.email'))
                                         ->attribute('maxlength', 191)
                                         ->required() }}
@@ -27,7 +29,7 @@
                         <div class="col-md-12">
                             <div class="position-relative form-group">
                                 {{ html()->password('password')
-                                        ->class('form-control')
+                                        ->class('form-control form-control-lg')
                                         ->placeholder(__('validation.attributes.frontend.password'))
                                         ->required() }}
                             </div>
