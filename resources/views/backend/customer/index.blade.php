@@ -64,7 +64,7 @@
                         <li class="list-group-item">
                             <div class="widget-content pt-2 pl-0 pb-2 pr-0">
                                 <div class="text-center">
-                                    <h5 class="widget-heading opacity-4 mb-0">Lorem ipsum</h5>
+                                    <h5 class="widget-heading opacity-4 mb-0">{{ $customer->phone_number }}</h5>
                                 </div>
                             </div>
                         </li>
@@ -73,13 +73,11 @@
                                 <div class="no-gutters row">
                                     <div class="col-sm-6">
                                         <a href="{{ route('admin.customer.view', $customer->id) }}" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
-                                            <i class="fa fa-chart-bar btn-icon-wrapper btn-icon-lg mb-3"> </i>Report
+                                            <i class="fa fa-eye btn-icon-wrapper btn-icon-lg mb-3"> </i>View Details
                                         </a>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button class="btn-icon-vertical btn-square btn-transition br-br btn btn-outline-link">
-                                            <i class="fa fa-file-alt btn-icon-wrapper btn-icon-lg mb-3"> </i>View All Invoice
-                                        </button>
+
                                     </div>
                                 </div>
                             </div>

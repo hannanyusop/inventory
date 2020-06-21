@@ -3,6 +3,15 @@
 @section('title', app_name() . ' | Customer View')
 
 @section('content')
+
+    <div class="row">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Customer / <a href="{{ route('admin.customer.index') }}">List</a> / View</h5>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-4">
             <div class="card-hover-shadow card-border mb-3 card">
@@ -29,21 +38,6 @@
                 </div>
             </div>
 
-            <div class="main-card mb-3 card">
-                <div class="card-body">
-                    <h5 class="card-title">Most Bought Item</h5>
-
-                    <div class="table-responsive">
-                        <table class="table table-bordered mt-4">
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Total</th>
-                                <th></th>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="col-md-8">
 
@@ -62,7 +56,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="widget-subheading mb-0 opacity-5">Total Supplied Item This Year</h6>
+                                <h6 class="widget-subheading mb-0 opacity-5">Total Bought Item This Year</h6>
                             </div>
                         </div>
                     </div>
@@ -81,7 +75,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="widget-subheading mb-0 opacity-5">Total Supplied Item (Overall)</h6>
+                                <h6 class="widget-subheading mb-0 opacity-5">Total Bought Item (Overall)</h6>
                             </div>
                         </div>
                     </div>

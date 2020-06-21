@@ -43,3 +43,9 @@ if (! function_exists('home_route')) {
         return 'frontend.index';
     }
 }
+
+
+function displayPrice($number){
+
+    return "RM ".number_format((float)$number, 2, '.', '');
+}
