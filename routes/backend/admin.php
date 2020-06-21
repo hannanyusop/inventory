@@ -32,6 +32,7 @@ Route::group(['prefix' => 'customer/', 'as' => 'customer.'], function(){
     Route::get('view/{id}', [CustomerController::class, 'view'])->name('view');
     Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('edit');
     Route::post('edit/{id}', [CustomerController::class, 'update'])->name('update');
+    Route::get('get/{id}', [CustomerController::class, 'getData'])->name('get-invoice');
 
 });
 
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'supplier/', 'as' => 'supplier.'], function(){
     Route::get('view/{id}', [SupplierController::class, 'view'])->name('view');
     Route::get('edit/{id}', [SupplierController::class, 'edit'])->name('edit');
     Route::post('edit/{id}', [SupplierController::class, 'update'])->name('update');
+    Route::get('get/{id}', [SupplierController::class, 'getData'])->name('get-invoice');
 
 });
 

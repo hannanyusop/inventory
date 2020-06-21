@@ -72,9 +72,9 @@
                             <div class="grid-menu grid-menu-2col">
                                 <div class="no-gutters row">
                                     <div class="col-sm-6">
-                                        <button class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
+                                        <a href="{{ route('admin.customer.view', $customer->id) }}" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
                                             <i class="fa fa-chart-bar btn-icon-wrapper btn-icon-lg mb-3"> </i>Report
-                                        </button>
+                                        </a>
                                     </div>
                                     <div class="col-sm-6">
                                         <button class="btn-icon-vertical btn-square btn-transition br-br btn btn-outline-link">
