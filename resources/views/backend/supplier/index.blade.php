@@ -7,7 +7,7 @@
     <div class="row">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Supplier / <a href="{{ route('admin.supllier.index') }}">List</a> / View</h5>
+                <h5 class="card-title">Supplier / <a href="{{ route('admin.supplier.index') }}">List</a> / View</h5>
             </div>
         </div>
     </div>

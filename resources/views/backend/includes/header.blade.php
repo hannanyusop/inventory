@@ -66,14 +66,9 @@
                                         <div class="scrollbar-container ps">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a href="javascript:void(0);" class="nav-link">Recover Password</a>
+                                                    <a href="{{ route('admin.account.edit') }}" class="nav-link">My Account</a>
                                                 </li>
-                                                <li class="nav-item-header nav-item">My Account
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="javascript:void(0);" class="nav-link">Settings
-                                                    </a>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>

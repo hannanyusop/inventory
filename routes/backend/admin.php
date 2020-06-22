@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ReceiveStockController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\TransferStockController;
 use App\Http\Controllers\Backend\StockReportController;
+use App\Http\Controllers\Backend\AccountController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -21,6 +22,14 @@ Route::group(['prefix' => 'item/', 'as' => 'item.'], function(){
     Route::get('view/{id}', [ItemController::class, 'view'])->name('view');
     Route::get('edit/{id}', [ItemController::class, 'edit'])->name('edit');
     Route::post('edit/{id}', [ItemController::class, 'update'])->name('update');
+
+});
+
+Route::group(['prefix' => 'account/', 'as' => 'account.'], function(){
+
+    Route::get('', [AccountController::class, 'edit'])->name('edit');
+    Route::post('update', [AccountController::class, 'update'])->name('update');
+    Route::post('update-password', [AccountController::class, 'updatePassword'])->name('update-password');
 
 });
 
