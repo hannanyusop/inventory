@@ -95,6 +95,8 @@ Route::group(['prefix' => 'stock-transfer/', 'as' => 'stock-transfer.'], functio
 Route::group(['prefix' => 'stock-report/', 'as' => 'stock-report.'], function(){
 
     Route::get('', [StockReportController::class, 'index'])->name('index');
+    Route::get('prediction', [StockReportController::class, 'prediction'])->name('prediction');
+
 
 
 });
