@@ -49,7 +49,7 @@
                 borderWidth: 2,
                 data: @json($formatted[$i->item_id])
                 },
-                <? $key++ ?>
+                <?php $key++ ?>
             @endforeach
 
             ]
