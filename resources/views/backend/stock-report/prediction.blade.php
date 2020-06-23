@@ -43,7 +43,6 @@
         var barChartData = {
             labels: MONTHS,
             datasets: [
-                <? $key = 0; ?>
             @foreach($data as $i)
                 {
                 label: '{{ $names[$key] }}',

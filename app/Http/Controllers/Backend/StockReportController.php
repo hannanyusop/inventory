@@ -123,7 +123,8 @@ class StockReportController extends Controller{
         }
 
 
-        return view("backend.stock-report.prediction", compact('data', 'formatted', 'names', 'dataMonth'));
+        $key = 0;
+        return view("backend.stock-report.prediction", compact('data', 'formatted', 'names', 'dataMonth', 'key'));
 
     }
 
