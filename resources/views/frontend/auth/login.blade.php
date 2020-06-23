@@ -41,7 +41,7 @@
             </div>
             <div class="modal-footer clearfix">
                 <div class="float-left">
-                    <a href="{{ route('frontend.auth.password.reset') }}" class="btn-lg btn btn-link">Recover Password</a>
+{{--                    <a href="{{ route('frontend.auth.password.reset') }}" class="btn-lg btn btn-link">Recover Password</a>--}}
                 </div>
                 <div class="float-right">
                     <button class="btn btn-primary btn-lg">Login to Dashboard</button>

@@ -31,7 +31,6 @@
                     <div class="app-logo-inverse mx-auto mb-3"></div>
 
                     @yield('content')
-                    <div class="text-center text-white opacity-8 mt-3">Copyright © 2019</div>
                 </div>
             </div>
         </div>
