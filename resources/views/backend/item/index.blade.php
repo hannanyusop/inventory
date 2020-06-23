@@ -48,7 +48,6 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>IMAGE</th>
                             <th>CODE</th>
                             <th>NAME</th>
                             <th >CATEGORY</th>
@@ -62,7 +61,6 @@
                         @foreach($items as $key => $item)
                         <tr>
                             <th>{{ $key }}</th>
-                            <th><img src="{{ asset($item->image_url) }}" class="rounded" width="50px" alt="{{ $item->name }}"></th>
                             <th>{{ $item->code }}</th>
                             <th>{{ $item->name }}</th>
                             <th>{{ $item->category->name }}</th>
