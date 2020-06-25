@@ -97,26 +97,16 @@ class LoginController extends Controller
 
         event(new UserLoggedIn($user));
 
-        if (config('access.users.single_login')) {
-            auth()->logoutOtherDevices($request->password);
-        }
+
+//        if (config('access.users.single_login')) {
+//            auth()->logoutOtherDevices($request->password);
+//        }
 
         return redirect()->intended($this->redirectPath());
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function logout(Request $request)
     {
-        // Remove the socialite session variable if exists
-        if (app('session')->has(config('access.socialite_session_name'))) {
-            app('session')->forget(config('access.socialite_session_name'));
-        }
 
         // Fire event, Log out user, Redirect
         event(new UserLoggedOut($request->user()));

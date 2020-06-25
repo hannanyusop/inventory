@@ -4,6 +4,20 @@
 
 @section('content')
     <div class="row">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-news-paper icon-gradient bg-ripe-malin"></i>
+                    </div>
+                    <div>Transfer Stock
+                        <div class="page-title-subheading">Invoice</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
 
             <div class="main-card mb-3 card">

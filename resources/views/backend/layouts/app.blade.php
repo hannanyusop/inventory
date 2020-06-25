@@ -13,8 +13,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', app_name())</title>
-    <meta name="description" content="@yield('meta_description', 'Laravel Boilerplate')">
-    <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
+    <meta name="description" content="@yield('meta_description', 'Herald\'s SIM SYSTEM')">
+    <meta name="author" content="@yield('meta_author', 'Petrica')">
     @yield('meta')
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />

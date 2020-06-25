@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CustomerInvoiceItem extends Model
 {
 
-    protected $table = 'si_item';
+    protected $table = 'ci_item';
 
     protected $attributes = [
     ];

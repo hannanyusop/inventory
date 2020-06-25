@@ -3,6 +3,17 @@
 @section('title', app_name() . ' | Transfer Stock List' )
 
 @section('content')
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-news-paper icon-gradient bg-ripe-malin"></i>
+                </div>
+                <div>Transfer Stock
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="main-card mb-3 card">
@@ -14,11 +25,8 @@
                                 <label for="customer_id" class="sr-only">Email</label>
                                 {{ html()->select('customer_id', $customers)->class('mr-2 form-control') }}
                             </div>
-                            <div class="position-relative form-group">
-                                <label for="examplePassword44" class="sr-only">Password</label>
-                                <input name="password" id="examplePassword44" placeholder="Password" type="password" class="mr-2 form-control">
-                            </div>
                             <button class="btn btn-primary">Search</button>
+                            <a href="{{ route('admin.stock-transfer.index') }}" class="ml-2 btn btn-warning">Clear</a>
                         </form>
                     </div>
                 </div>

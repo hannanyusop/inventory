@@ -3,6 +3,18 @@
 @section('title', app_name() . ' | Receive Stock')
 
 @section('content')
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-cart icon-gradient bg-ripe-malin"></i>
+                </div>
+                <div>Receive Stock
+                    <div class="page-title-subheading">STEP 3 : Transaction Confirmation</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
 
@@ -66,8 +78,10 @@
                         {{ html()->textarea('remark')->class('form-control')->placeholder('Remark') }}
                     </div>
 
-                        <a href="{{ route('admin.stock-receive.add', 'step=2') }}" class="btn btn-warning">Modify Product List</a>
-                        <button class="btn btn-success">Save</button>
+                        <a href="{{ route('admin.stock-receive.add', 'step=2') }}" class="btn btn-warning btn-icon"><i class="fa fa-arrow-left btn-icon-wrapper"></i>Back</a>
+                        <div class="float-right">
+                            <button class="btn btn-success btn-icon"><i class="fa fa-save btn-icon-wrapper"></i> Save</button>
+                        </div>
                     {{ html()->form()->close() }}
                 </div>
             </div>

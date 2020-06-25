@@ -15,10 +15,21 @@ use Illuminate\Support\Facades\Session;
 class ReceiveStockController extends Controller
 {
 
-    public function index()
-    {
+    public function index(Request $request){
+
+
+        if($request->has('supplier_id')){
+            $si = SupplierInvoice::where('supplier_id', '=', $request->supplier_id)
+                ->get();
+
+        }else{
+
+            $si = SupplierInvoice::all();
+
+        }
+
         $suppliers = Supplier::all()->pluck('name','id');
-        $si = SupplierInvoice::all();
+
         return view('backend.receive-stock.index', compact('si', 'suppliers'));
     }
 
@@ -29,9 +40,15 @@ class ReceiveStockController extends Controller
 
             if($request->isMethod('post')){
 
+                $request->validate([
+                    'supplier_id' => 'required|exists:suppliers,id',
+                    'date' => 'required',
+                ]);
+
                 $data = [
                     'supplier_id' => $request->supplier_id,
                     'date' => $request->date,
+                    'product' => []
                 ];
 
                 Session::put('receive_product', $data);
@@ -45,6 +62,14 @@ class ReceiveStockController extends Controller
             } else if (request('step') == 2){
 
             if(request('add')) {
+
+                $request->validate([
+                    'item_id' => 'required|exists:items,id',
+                    'price_supplier' => 'required|numeric|min:0',
+                    'price_adjustment' => 'required|numeric|min:0',
+                    'qty' => 'required|numeric|min:1',
+                    'total' => 'required|numeric|min:0'
+                ]);
 
                $p = Item::find($request->item_id);
 
@@ -126,13 +151,19 @@ class ReceiveStockController extends Controller
 
            $receive_product = Session::get('receive_product');
 
-           #testing purpose
-           $receive_product['supplier_id'] = 1;
+           #need to check atleat 1 product inserted
+            if(count($receive_product['product']) == 0){
+                return redirect(route('admin.stock-receive.add', 'step=2'))->withErrors('Please Add At Least 1 product!');
+            }
 
            $supplier = Supplier::find($receive_product['supplier_id']);
 
            return view('backend.receive-stock.add-3', compact('supplier'));
        }else if(request('step') == 4){
+
+            $request->validate([
+                'remark' => 'required',
+            ]);
 
             $session = Session::get('receive_product');
 
@@ -169,8 +200,8 @@ class ReceiveStockController extends Controller
                 $i->increment('qty_total', $item['qty']);
 
                 #get subtotal and net
-                $price_total = $price_total+$item['price_supplier'];
-                $price_net = $price_net+$item['price_supplier'];
+                $price_total = $price_total+($item['price_supplier']*$item['qty']);
+                $price_net = $price_net+($item['price_supplier']*$item['qty']);
 
             }
 

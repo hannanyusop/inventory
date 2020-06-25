@@ -3,6 +3,18 @@
 @section('title', app_name() . ' | Transfer Stock')
 
 @section('content')
+    <div class="app-page-title">
+        <div class="page-title-wrapper">
+            <div class="page-title-heading">
+                <div class="page-title-icon">
+                    <i class="pe-7s-news-paper icon-gradient bg-ripe-malin"></i>
+                </div>
+                <div>Transfer Stock
+                    <div class="page-title-subheading">STEP 3: Transaction Confirmation</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
 

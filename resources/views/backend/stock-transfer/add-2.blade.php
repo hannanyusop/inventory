@@ -7,11 +7,23 @@
 
 @section('content')
     <div class="row">
+        <div class="app-page-title">
+            <div class="page-title-wrapper">
+                <div class="page-title-heading">
+                    <div class="page-title-icon">
+                        <i class="pe-7s-news-paper icon-gradient bg-ripe-malin"></i>
+                    </div>
+                    <div>Transfer Stock
+                        <div class="page-title-subheading">STEP 2 :Add Product</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-8">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-
-                    <h3 class="card-title">STEP 2 :Add Product</h3>
 
 
                     {{ html()->form('post', route('admin.stock-transfer.add', 'step=2&add=true'))->attribute('enctype', 'multipart/form-data')->open() }}
@@ -52,9 +64,11 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{ route('admin.stock-transfer.add', 'step=1') }}" onclick="return confirm('Are you sure?')" class="btn btn-lg btn-warning">Back & Clear All Product</a>
-                    <button type="submit" class="btn btn-lg btn-success">Save & Add Another Item</button>
-                    <a href="{{ route('admin.stock-transfer.add', 'step=3') }}" class="btn btn-lg btn-primary">Dont Save & Next</a>
+                    <a href="{{ route('admin.stock-transfer.add', 'step=1') }}" onclick="return confirm('Are you sure? All saved product will be deleted.')" class="btn btn-icon btn-lg btn-warning"><i class="fa fa-arrow-left btn-icon-wrapper"></i> Back</a>
+                    <div class="float-right">
+                        <button type="submit" class="btn btn-lg btn-success btn-icon"><i class="fa fa-plus btn-icon-wrapper"></i> Add Product</button>
+                        <a href="{{ route('admin.stock-transfer.add', 'step=3') }}" class="btn btn-lg btn-primary btn-icon"><i class="fa fa-arrow-right btn-icon-wrapper"></i> Next</a>
+                    </div>
                     {{ html()->form()->close() }}
                 </div>
             </div>
@@ -98,6 +112,12 @@
 @endsection
 @push('after-scripts')
 <script type="text/javascript">
+
+    $( document ).ready(function() {
+        $('#price_supplier').val($('#item_id').find(':selected').data('price'));
+        $('#price_adjustment').val($('#item_id').find(':selected').data('price'));
+        updateTotal();
+    });
 
     $('#item_id').on('change', function() {
 
