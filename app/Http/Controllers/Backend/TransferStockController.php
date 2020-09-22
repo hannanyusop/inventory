@@ -205,7 +205,7 @@ class TransferStockController extends Controller
             foreach ($session['product'] as $key => $item){
 
                 $new_product = new CustomerInvoiceItem();
-                $new_product->si_id = $si->id;
+                $new_product->ci_id = $si->id;
                 $new_product->item_id = $key;
                 $new_product->qty = $item['qty'];
                 $new_product->price_adjustment = $item['price_adjustment'];
@@ -218,8 +218,8 @@ class TransferStockController extends Controller
                 $i->decrement('qty_left', $item['qty']);
 
                 #get subtotal and net
-                $price_total = $price_total+$item['price_customer'];
-                $price_net = $price_net+$item['price_customer'];
+                $price_total = $price_total+($item['price_customer']*$item['qty']);
+                $price_net = $price_net+($item['price_customer']*$item['qty']);
 
             }
 
@@ -281,7 +281,7 @@ class TransferStockController extends Controller
         foreach ($request->items as $data){
 
             $item = new CustomerInvoiceItem();
-            $item->si_id = $si->id;
+            $item->ci_id = $si->id;
             $item->item_id = $data->item_id;
             $item->qty = $data->qty;
             $item->price_adjusment = $data->price_adjustment;

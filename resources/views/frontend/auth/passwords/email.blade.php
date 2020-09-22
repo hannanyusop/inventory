@@ -7,6 +7,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="h5 modal-title text-center">
+                    <img class="" src="{{ asset('img/backend/brand/logo-square.png') }}">
                     <h4 class="mt-2">
                         <div>Forgot Password?</div>
                         <span></span>

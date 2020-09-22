@@ -1,6 +1,6 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
-        <div class="logo-src"></div>
+        <div><img src="{{ asset('img/backend/brand/logo.png') }}"></div>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -66,14 +66,9 @@
                                         <div class="scrollbar-container ps">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a href="javascript:void(0);" class="nav-link">Recover Password</a>
+                                                    <a href="{{ route('admin.account.edit') }}" class="nav-link">My Account</a>
                                                 </li>
-                                                <li class="nav-item-header nav-item">My Account
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="javascript:void(0);" class="nav-link">Settings
-                                                    </a>
-                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
@@ -85,11 +80,6 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading"> {{ $logged_in_user->full_name }}</div>
-                        </div>
-                        <div class="widget-content-right header-user-info ml-3">
-                            <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                <i class="fa text-white fa-calendar pr-1 pl-1"></i>
-                            </button>
                         </div>
                     </div>
                 </div>

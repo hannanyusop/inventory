@@ -11,7 +11,7 @@
                 <div class="page-title-icon">
                     <i class="pe-7s-news-paper icon-gradient bg-ripe-malin"></i>
                 </div>
-                <div>Receive Stock
+                <div>Transfer Stock
                     <div class="page-title-subheading">STEP 1: Customer Information</div>
                 </div>
             </div>

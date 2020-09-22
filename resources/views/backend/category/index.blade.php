@@ -31,7 +31,6 @@
                             <th>{{ $item->created_at }}</th>
                             <th>{{ $item->updated_at }}</th>
                             <th>
-                                <a href="{{ route('admin.category.view', $item->id) }}" class="btn btn-info btn-sm">View</a>
                                 <a href="{{ route('admin.category.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                             </th>
                         </tr>

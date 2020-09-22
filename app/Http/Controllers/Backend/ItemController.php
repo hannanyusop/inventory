@@ -92,7 +92,7 @@ class ItemController extends Controller
         $item = Item::where('id', $id)->first();
 
         if($item){
-            return view('backend.item.view', compact($item));
+            return view('backend.item.view', compact('item'));
         }else{
             return redirect(route('admin.item.index'))->withErrorMessage('No Item Found!');
         }

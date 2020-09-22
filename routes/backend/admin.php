@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ReceiveStockController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\TransferStockController;
 use App\Http\Controllers\Backend\StockReportController;
+use App\Http\Controllers\Backend\AccountController;
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
@@ -24,6 +25,14 @@ Route::group(['prefix' => 'item/', 'as' => 'item.'], function(){
 
 });
 
+Route::group(['prefix' => 'account/', 'as' => 'account.'], function(){
+
+    Route::get('', [AccountController::class, 'edit'])->name('edit');
+    Route::post('update', [AccountController::class, 'update'])->name('update');
+    Route::post('update-password', [AccountController::class, 'updatePassword'])->name('update-password');
+
+});
+
 Route::group(['prefix' => 'customer/', 'as' => 'customer.'], function(){
 
     Route::get('', [CustomerController::class, 'index'])->name('index');
@@ -32,6 +41,7 @@ Route::group(['prefix' => 'customer/', 'as' => 'customer.'], function(){
     Route::get('view/{id}', [CustomerController::class, 'view'])->name('view');
     Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('edit');
     Route::post('edit/{id}', [CustomerController::class, 'update'])->name('update');
+    Route::get('get/{id}', [CustomerController::class, 'getData'])->name('get-invoice');
 
 });
 
@@ -54,6 +64,7 @@ Route::group(['prefix' => 'supplier/', 'as' => 'supplier.'], function(){
     Route::get('view/{id}', [SupplierController::class, 'view'])->name('view');
     Route::get('edit/{id}', [SupplierController::class, 'edit'])->name('edit');
     Route::post('edit/{id}', [SupplierController::class, 'update'])->name('update');
+    Route::get('get/{id}', [SupplierController::class, 'getData'])->name('get-invoice');
 
 });
 
@@ -84,6 +95,8 @@ Route::group(['prefix' => 'stock-transfer/', 'as' => 'stock-transfer.'], functio
 Route::group(['prefix' => 'stock-report/', 'as' => 'stock-report.'], function(){
 
     Route::get('', [StockReportController::class, 'index'])->name('index');
+    Route::get('prediction', [StockReportController::class, 'prediction'])->name('prediction');
+
 
 
 });

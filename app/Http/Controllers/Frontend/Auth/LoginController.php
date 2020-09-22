@@ -95,27 +95,21 @@ class LoginController extends Controller
             throw new GeneralException(__('exceptions.frontend.auth.deactivated'));
         }
 
-//        event(new UserLoggedIn($user));
+        event(new UserLoggedIn($user));
 
-        if (config('access.users.single_login')) {
-            auth()->logoutOtherDevices($request->password);
-        }
+
+//        if (config('access.users.single_login')) {
+//            auth()->logoutOtherDevices($request->password);
+//        }
 
         return redirect()->intended($this->redirectPath());
     }
 
-    /**
-     * Log the user out of the application.
-     *
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function logout(Request $request)
     {
 
         // Fire event, Log out user, Redirect
-//        event(new UserLoggedOut($request->user()));
+        event(new UserLoggedOut($request->user()));
 
         // Laravel specific logic
         $this->guard()->logout();

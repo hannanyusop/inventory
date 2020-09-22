@@ -3,6 +3,16 @@
 @section('title', app_name() . ' | Supplier List' )
 
 @section('content')
+
+    <div class="row">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Supplier / <a href="{{ route('admin.supplier.index') }}">List</a> / View</h5>
+            </div>
+        </div>
+    </div>
+
+
     <div class="app-page-title">
         <div class="page-title-wrapper">
             <div class="page-title-heading">
@@ -64,7 +74,7 @@
                         <li class="list-group-item">
                             <div class="widget-content pt-2 pl-0 pb-2 pr-0">
                                 <div class="text-center">
-                                    <h5 class="widget-heading opacity-4 mb-0">Lorem ipsum</h5>
+                                    <h5 class="widget-heading opacity-4 mb-0">{{ $supplier->phone_number }}</h5>
                                 </div>
                             </div>
                         </li>
@@ -72,14 +82,12 @@
                             <div class="grid-menu grid-menu-2col">
                                 <div class="no-gutters row">
                                     <div class="col-sm-6">
-                                        <button class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
-                                            <i class="fa fa-chart-bar btn-icon-wrapper btn-icon-lg mb-3"> </i>Report
-                                        </button>
+                                        <a href="{{ route('admin.supplier.view', $supplier->id) }}" class="btn-icon-vertical btn-square btn-transition br-bl btn btn-outline-link">
+                                            <i class="fa fa-eye btn-icon-wrapper btn-icon-lg mb-3"> </i>View Details
+                                        </a>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button class="btn-icon-vertical btn-square btn-transition br-br btn btn-outline-link">
-                                            <i class="fa fa-file-alt btn-icon-wrapper btn-icon-lg mb-3"> </i>View All Invoice
-                                        </button>
+
                                     </div>
                                 </div>
                             </div>

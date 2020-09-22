@@ -59,6 +59,11 @@
                                 <i class="metismenu-icon"></i> Stock Report
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('admin.stock-report.prediction') }}" >
+                                <i class="metismenu-icon"></i> Stock Prediction
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>

@@ -200,8 +200,8 @@ class ReceiveStockController extends Controller
                 $i->increment('qty_total', $item['qty']);
 
                 #get subtotal and net
-                $price_total = $price_total+$item['price_supplier'];
-                $price_net = $price_net+$item['price_supplier'];
+                $price_total = $price_total+($item['price_supplier']*$item['qty']);
+                $price_net = $price_net+($item['price_supplier']*$item['qty']);
 
             }
 
